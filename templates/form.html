@@ -10,13 +10,16 @@
     <h1>Sri Annapoorna</h1>
     <h2>Leave Request Form</h2>
     <form method="POST" action="/submit">
+        <label for="name">Employee Name</label>
         <input name="name" placeholder="Employee Name" required>
+        <label for="employee_id">Employee ID</label>
         <input name="employee_id" placeholder="Employee ID">
+        <label for="phone">Whatsapp Number</label>
         <input name="phone" placeholder="WhatsApp Number (e.g., +91XXXXXXXXXX)" value="+91" required>
 
         <label for="start_date">Start Date</label>
         <input type="date" name="start_date" required>
-        <label for="start_date">End Date</label>
+        <label for="end_date">End Date</label>
         <input type="date" name="end_date" required>
 
         <textarea name="reason" placeholder="Reason for Leave" required></textarea>
