@@ -40,7 +40,7 @@ def submit():
 
     # 🔹 WhatsApp message to manager
 
-    dashboard_url = 'https://opposed-ul-submissions-logistics.trycloudflare.com/manager'
+    dashboard_url = 'https://annapoorna-leave-app.onrender.com/manager'
 
     message = f"""📩 *Leave Request from {data['name']}*
 🆔 ID: {data['employee_id']}
