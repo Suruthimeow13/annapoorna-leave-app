@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Leave Request</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Sri Annapoorna</h1>
+    <h2>Leave Request Form</h2>
+    <form method="POST" action="/submit">
+        <input name="name" placeholder="Employee Name" required>
+        <input name="employee_id" placeholder="Employee ID">
+        <input name="phone" placeholder="WhatsApp Number (e.g., +91XXXXXXXXXX)" value="+91" required>
+
+        <input type="date" name="start_date" required>
+        <input type="date" name="end_date" required>
+
+        <textarea name="reason" placeholder="Reason for Leave" required></textarea>
+
+        <button type="submit">Submit Leave</button>
+    </form>
+</body>
+</html>

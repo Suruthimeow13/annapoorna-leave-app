@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Manager Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Sri Annapoorna</h1>
+    <h2>Manager Dashboard</h2>
+    {% for req in requests %}
+    <div class="request {% if req.status == 'Approved' %}approved{% elif req.status == 'Rejected' %}rejected{% else %}pending{% endif %}">
+        <b>Name:</b> {{ req.name }}<br>
+        <b>Employee ID:</b> {{ req.employee_id }}<br>
+        <b>Dates:</b> {{ req.start_date }} to {{ req.end_date }}<br>
+        <b>Reason:</b> {{ req.reason }}<br>
+        <b>Status:</b> {{ req.status }}<br>
+
+        {% if req.status == 'Pending' %}
+        <form action="/action" method="POST" style="margin-top:10px;">
+            <input type="hidden" name="id" value="{{ loop.index0 }}">
+            <textarea name="comment" placeholder="Manager comment (optional)"></textarea>
+            
+            <div style="display: flex; gap: 10px;">
+                <button type="submit" name="decision" value="Approved" style="background-color: #28a745;">✅ Approve</button>
+                <button type="submit" name="decision" value="Rejected" style="background-color: #dc3545;">❌ Reject</button>
+            </div>
+        </form>
+        {% else %}
+        <b>Manager Comment:</b> {{ req.manager_comment }}
+        {% endif %}
+    </div>
+    {% endfor %}
+</body>
+</html>
